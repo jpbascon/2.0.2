@@ -34,6 +34,6 @@ const appendItem = (item, index) => {
   // Check if there is a corresponding .title element at this index
   if (titles[index]) {
     // Append the new <p> element to the .title element
-    titles[index].appendChild(titleDOM);
+    titles[index].append(titleDOM);
   }
 };
