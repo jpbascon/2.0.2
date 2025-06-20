@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Young+Serif&display=swap');
+
+:root {
+  --Purple-600: hsl(246, 80%, 60%);
+
+  --Orange-300: hsl(15, 100%, 70%);
+  --Blue-300: hsl(195, 74%, 62%);
+  --Pink-400: hsl(348, 100%, 68%);
+  --Green-400: hsl(145, 58%, 55%);
+  --Purple-700: hsl(264, 64%, 52%);
+  --Yellow-300: hsl(43, 84%, 65%);
+  --Navy-950: hsl(226, 43%, 10%);
+  --Navy-900: hsl(235, 46%, 20%);
+  --Purple-500: hsl(235, 45%, 61%);
+  --Navy-200: hsl(236, 100%, 87%);
+
+  --Rubik: 'Rubik', sans-serif;
+}
+
+/* General Styling */
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+a,
+a:visited {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  font-family: var(--Rubik);
+  background-color: var(--Navy-950);
+  height: 100%;
+}
+
+main {
+  margin: 10rem;
+}
+
+/* Profile */
+
+.layout {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  gap: 1.2rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--Navy-900);
+  border-radius: 12px;
+  width: 200px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Purple-600);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+  color: var(--Navy-200);
+  gap: 2rem;
+}
+
+.hero {
+  max-width: 100px;
+  width: 34%;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.profile-name p {
+  font-size: .86rem;
+}
+
+.profile-name h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.filter a {
+  color: var(--Purple-500);
+  transition: color .1s ease;
+  font-size: 0.95rem;
+}
+
+.filter a:hover {
+  color: white;
+}
+
+/* Cards */
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 1.2rem;
+  height: 100%;
+}
+
+.work,
+.exercise {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  width: 200px;
+  height: 100%;
+}
+
+.work {
+  background-color: var(--Orange-300);
+}
+
+.exercise {
+  background-color: var(--Green-400);
+}
+
+.task-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 33.5px;
+  padding-right: 0.7rem;
+  overflow: hidden;
+}
+
+.activity-container {
+  border-radius: 12px;
+  background-color: var(--Navy-900);
+  padding: 1.5rem;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.title p {
+  font-size: .85rem;
+  font-weight: 500;
+}
+
+.btn-card {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-card span {
+  width: 3px;
+  height: 3px;
+  background-color: var(--Navy-200);
+  border-radius: 50%;
+}
+
+.timeframes {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.timeframes h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.timeframes p {
+  color: var(--Navy-200);
+  font-size: .85rem;
+  font-weight: 300;
+}
