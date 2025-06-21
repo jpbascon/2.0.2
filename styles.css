@@ -113,6 +113,10 @@ main {
   color: white;
 }
 
+.filter a.active {
+  color: white;
+}
+
 /* Cards */
 
 .columns {
@@ -184,18 +188,18 @@ main {
   border-radius: 50%;
 }
 
-.timeframes {
+.timeframe {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.timeframes h1 {
+.timeframe h1 {
   font-size: 2.5rem;
   font-weight: 300;
 }
 
-.timeframes p {
+.timeframe p {
   color: var(--Navy-200);
   font-size: .85rem;
   font-weight: 300;
