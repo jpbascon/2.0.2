@@ -4,17 +4,16 @@ const previousWork = document.querySelectorAll('.previous-work');
 const dailyFilter = document.getElementById('daily');
 const weeklyFilter = document.getElementById('weekly');
 const monthlyFilter = document.getElementById('monthly');
+const filterButtons = document.querySelectorAll('.btn');
 
 let timeframe = 'daily';
 
-fetch('./data.json')
-  .then((response) => {
-    if (!response.ok) return console.log('Oops! Something went wrong.');
-    return response.json();
-  })
-  .then((data) => {
-    populateDOM(data);
-  });
+fetch('./data.json').then((response) => {
+  if (!response.ok) return console.log('Oops! Something went wrong.');
+  return response.json();
+}).then((data) => {
+  populateDOM(data);
+});
 
 // Function to populate the DOM with data
 const populateDOM = (data) => {
@@ -65,20 +64,10 @@ const appendItem = (item, index) => {
 };
 
 /* Filter Styles */
-dailyFilter.addEventListener('click', () => {
-  dailyFilter.classList.add('active');
-  weeklyFilter.classList.remove('active');
-  monthlyFilter.classList.remove('active');
-})
-
-weeklyFilter.addEventListener('click', () => {
-  dailyFilter.classList.remove('active');
-  weeklyFilter.classList.add('active');
-  monthlyFilter.classList.remove('active');
-})
-
-monthlyFilter.addEventListener('click', () => {
-  dailyFilter.classList.remove('active');
-  weeklyFilter.classList.remove('active');
-  monthlyFilter.classList.add('active');
+filterButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach((b) => b.classList.remove('active')
+    );
+    btn.classList.add('active');
+  })
 })
