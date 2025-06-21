@@ -49,7 +49,7 @@ const appendItem = (item, index) => {
 
   titleDOM.textContent = item.title;
   currentWorkDOM.textContent = `${current}hrs`;
-  previousWorkDOM.textContent = `Last Week - ${previous}`;
+  previousWorkDOM.textContent = `Last Week - ${previous}hrs`;
 
 
   if (titles[index]) {

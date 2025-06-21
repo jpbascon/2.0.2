@@ -54,6 +54,7 @@ main {
 .layout {
   display: flex;
   align-items: stretch;
+  justify-content: center;
   height: 100%;
   gap: 1.2rem;
 }
@@ -61,11 +62,9 @@ main {
 .profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: var(--Navy-900);
   border-radius: 12px;
-  width: 200px;
-  height: 100%;
+  width: 190px;
   flex-shrink: 0;
 }
 
@@ -91,7 +90,7 @@ main {
 }
 
 .profile-name h2 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 300;
   color: white;
 }
@@ -128,12 +127,17 @@ main {
 }
 
 .work,
-.exercise {
+.exercise,
+.play,
+.social,
+.study,
+.self-care {
   display: flex;
   flex-direction: column;
   border-radius: 12px;
-  width: 200px;
+  width: 170px;
   height: 100%;
+  cursor: pointer;
 }
 
 .work {
@@ -144,19 +148,47 @@ main {
   background-color: var(--Green-400);
 }
 
+.play {
+  background-color: var(--Blue-300);
+}
+
+.social {
+  background-color: var(--Purple-700);
+}
+
+.study {
+  background-color: var(--Pink-400);
+}
+
+.self-care {
+  background-color: var(--Yellow-300);
+}
+
 .task-container {
   display: flex;
   justify-content: end;
   align-items: center;
-  height: 33.5px;
-  padding-right: 0.7rem;
+  height: 30px;
   overflow: hidden;
 }
 
+.task {
+  margin-top: 0.4rem;
+  margin-right: 0.5rem;
+  height: 46px;
+}
+
 .activity-container {
+  position: relative;
+  height: 100%;
   border-radius: 12px;
   background-color: var(--Navy-900);
   padding: 1.5rem;
+  transition: filter 0.3s ease;
+}
+
+.activity-container:hover {
+  filter: brightness(1.2);
 }
 
 .title-container {
@@ -203,4 +235,79 @@ main {
   color: var(--Navy-200);
   font-size: .85rem;
   font-weight: 300;
+}
+
+@media (max-width: 48rem) {
+  .layout {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile {
+    width: 100%;
+    min-width: 220px;
+  }
+
+  .top-container {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.2rem;
+    gap: 1.3rem;
+  }
+
+  .profile-name h2 {
+    font-size: 1rem;
+  }
+
+  .hero {
+    width: 20%;
+  }
+
+  .filter {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .filter a {
+    font-size: .8rem;
+  }
+
+  .columns {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 220px;
+    width: 100%;
+  }
+
+  .work,
+  .exercise,
+  .play,
+  .social,
+  .study,
+  .self-care {
+    width: 100%;
+    min-width: 220px;
+  }
+
+  .activity-container {
+    padding: 1rem;
+  }
+
+  .timeframe {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .current-work h1 {
+    font-size: 1.5rem;
+  }
+
+  .previous-work p {
+    font-size: .65rem;
+  }
 }
