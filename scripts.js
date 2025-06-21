@@ -24,9 +24,12 @@ const populateDOM = (data) => {
     monthly: monthlyFilter,
   };
 
+  // Converts filters into an array of key, value pairs
+  // i.e, key = 'daily', button = 'dailyFilter'
   Object.entries(filters).forEach(([key, button]) => {
     button.addEventListener('click', () => {
       timeframe = key;
+      // loops until data is empty
       data.forEach((item, index) => {
         appendItem(item, index);
       });
@@ -38,9 +41,8 @@ const populateDOM = (data) => {
   });
 };
 
-// Function to append a new <p> element into the corresponding .title element
 const appendItem = (item, index) => {
-
+  // current = 5, previous = 7 if timeframe = 'daily'
   const { current, previous } = item.timeframes[timeframe];
 
   const titleDOM = document.createElement('p');
@@ -50,7 +52,6 @@ const appendItem = (item, index) => {
   titleDOM.textContent = item.title;
   currentWorkDOM.textContent = `${current}hrs`;
   previousWorkDOM.textContent = `Last Week - ${previous}hrs`;
-
 
   if (titles[index]) {
     titles[index].replaceChildren(titleDOM);
@@ -64,7 +65,6 @@ const appendItem = (item, index) => {
 };
 
 /* Filter Styles */
-
 dailyFilter.addEventListener('click', () => {
   dailyFilter.classList.add('active');
   weeklyFilter.classList.remove('active');
