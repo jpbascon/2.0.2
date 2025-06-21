@@ -66,8 +66,7 @@ const appendItem = (item, index) => {
 /* Filter Styles */
 filterButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
-    filterButtons.forEach((b) => b.classList.remove('active')
-    );
+    filterButtons.forEach((b) => b.classList.remove('active'));
     btn.classList.add('active');
   })
 })
