@@ -1,19 +1,34 @@
 const titles = document.querySelectorAll('.title');
 const currentWork = document.querySelectorAll('.current-work');
 const previousWork = document.querySelectorAll('.previous-work');
+const filterButtons = document.querySelectorAll('.btn');
 const dailyFilter = document.getElementById('daily');
 const weeklyFilter = document.getElementById('weekly');
 const monthlyFilter = document.getElementById('monthly');
-const filterButtons = document.querySelectorAll('.btn');
 
 let timeframe = 'daily';
 
-fetch('./data.json').then((response) => {
-  if (!response.ok) return console.log('Oops! Something went wrong.');
-  return response.json();
-}).then((data) => {
-  populateDOM(data);
-});
+// Define an asynchronous function to load the data
+async function loadData() {
+  try {
+    // Attempt to fetch the data.json file
+    const response = await fetch('./data.json');
+    // Check if the HTTP response status is NOT OK (e.g., 404, 500, etc.)
+    if (!response.ok) {
+      // Throw a custom error message to be caught by the catch block
+      throw new Error('Oops! Something went wrong.');
+    }
+    // Parse the response body as JSON (this also returns a Promise)
+    const data = await response.json();
+    populateDOM(data);
+  } catch (error) {
+    // Catch and handle any errors that occur during fetch or JSON parsing
+    console.error('Fetch error:', error.message);
+  }
+}
+
+// Call the async function to begin the data fetching process
+loadData();
 
 // Function to populate the DOM with data
 const populateDOM = (data) => {
@@ -24,7 +39,11 @@ const populateDOM = (data) => {
   };
 
   // Converts filters into an array of key, value pairs
-  // i.e, key = 'daily', button = 'dailyFilter'
+  // i.e, [['daily', dailyFilter], ['weekly', weeklyFilter]]
+  // NOTE: Object properties that contains variable will return
+  // the value of said variable. However, If it's pointing
+  // on a variable that contains DOM, it returns the
+  // exact reference.
   Object.entries(filters).forEach(([key, button]) => {
     button.addEventListener('click', () => {
       timeframe = key;
